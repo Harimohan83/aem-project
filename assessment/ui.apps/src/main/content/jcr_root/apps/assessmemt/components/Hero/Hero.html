@@ -1,0 +1,163 @@
+<html>
+
+<head>
+
+    <head>
+
+
+        <style>
+            .aem-Grid {
+                display: block;
+                width: 100%
+            }
+            
+            .aem-Grid.aem-Grid--12>.aem-GridColumn.aem-GridColumn--default--5 {
+                float: left;
+                clear: none;
+                width: 41.66666667%
+            }
+            
+            .aem-Grid.aem-Grid--12>.aem-GridColumn.aem-GridColumn--default--6 {
+                float: left;
+                clear: none;
+                width: 50%
+            }
+            
+            .aem-Grid.aem-Grid--12>.aem-GridColumn.aem-GridColumn--default--7 {
+                float: left;
+                clear: none;
+                width: 58.33333333%
+            }
+            
+            .vg_data_enables {
+                background-color: #fff;
+                padding-bottom: 75pt
+            }
+            
+            .vg_data_enables_leftcol_image {
+                padding: 21% 7% 0;
+                width: 100%;
+                height: 480px
+            }
+            
+            .vg_data_enables_leftcol_action-container {
+                width: 100%;
+                text-align: center;
+                margin: 0 auto;
+                padding-left: 4%;
+                padding-top: 4%
+            }
+            
+            .vg_data_enables_leftcol_action-link {
+                background-color: #000;
+                border-radius: 75pt;
+                padding: 14px 24px;
+                letter-spacing: 1px;
+                display: inline-block;
+                border: #fff;
+                color: #fff;
+                text-transform: none;
+                text-decoration: none;
+                font: normal normal 700 18px/1pc Mark Pro Bold
+            }
+            
+            .vg_data_enables_rightcol {
+                padding-left: 72px
+            }
+            
+            .vg_data_enables_rightcol_title {
+                padding-top: 80px;
+                text-align: left;
+                font: normal normal 900 40px/45px Mark Pro Heavy;
+                letter-spacing: 0;
+                color: #000
+            }
+            
+            .vg_data_enables_rightcol_title2 {
+                text-align: left;
+                font: normal normal 900 30px/35px Mark Pro Heavy;
+                letter-spacing: 0;
+                color: #000
+            }
+            
+            .vg_data_enables_rightcol_description {
+                margin: 30px 0 50px;
+                width: 85%
+            }
+            
+            .vg_data_enables_rightcol_list_item_title {
+                text-align: left;
+                font: normal normal 700 25px/30px Mark Pro Bold;
+                margin: 0
+            }
+            
+            .vg_data_enables_rightcol_list_item_col .parent {
+                padding-left: 0
+            }
+            
+            .vg_data_enables_rightcol_list_item_col .parent .list {
+                list-style-type: none;
+                margin: 10px 0 20px
+            }
+            
+            .vg_data_enables_rightcol_list_item_col .parent a {
+                color: #000;
+                text-decoration: none;
+                text-align: left;
+                font: normal normal normal 18px/20px Mark Pro
+            }
+            
+            .vg_data_enables_rightcol_list_item_col .parent a .vg_col_txt:hover {
+                border-bottom: 1px solid #000
+            }
+            
+            .vg_data_enables_rightcol_list_item_col {
+                padding: 0 1rem 0 0
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="vg_data_enables aem-Grid aem-Grid--12 cmp-layout-container--fixed" id="sec1">
+            <div class="aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--12 vg_data_enables_leftcol" id="twentyone-report-section">
+                <img class="vg_data_enables_leftcol_image" src="${properties.fileReference || properties.file || properties.fileName}">
+                <div class="vg_data_enables_leftcol_action-container">
+                    <a class="vg_data_enables_leftcol_action-link" href="${properties.buttonLinkTo @ extension='html' }" target="_blank" role="button ">${properties.buttonLabel}</a>
+                </div>
+            </div>
+            <div class="aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--phone--12 vg_data_enables_rightcol">
+                <h3 class="vg_data_enables_rightcol_title">${properties.title}</h3>
+                <h3 class="vg_data_enables_rightcol_title2">${properties.title1}</h3>
+                <p class="vg_data_enables_rightcol_description">${properties.description}</p>
+                <div class="vg_data_enables_rightcol_list_item">
+                    <h5 class="vg_data_enables_rightcol_list_item_title">Related links :</h5>
+                    <div class=" aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--12 vg_data_enables_rightcol_list_item_col">
+                        <div class="parent">
+                            <sly data-sly-list="${resource.children}">
+                                <sly data-sly-list="${item.children}">
+                                    <div class="list" data-sly-test="${item.buttonLabelm && item.buttonLinkTom} ">
+                                        <a href="${item.buttonLinkTom @ extension='html'}"><span class="vg_col_txt"><u>${item.buttonLabelm}</u></span>&nbsp;</a>
+                                    </div>
+                                </sly>
+                            </sly>
+                        </div>
+                        <br>
+                        <div class="aem-Grid aem-Grid--12">
+                            <div class=" aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--12 vg_data_enables_rightcol_list_item_col">
+                                <div class="parent">
+                                    <sly data-sly-list="${resource.children}">
+                                        <sly data-sly-list="${item.children}">
+                                            <div class="list" data-sly-test="${item.buttonLabel && item.buttonLinkTo} ">
+                                                <a href="${item.buttonLinkTo @ extension='html'}"><span class="vg_col_txt"><u>${item.buttonLabel}</u></span>&nbsp;</a>
+                                            </div>
+                                        </sly>
+                                    </sly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>
